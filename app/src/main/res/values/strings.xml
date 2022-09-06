@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Controle Financas</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <string name="monday">Seg</string>
+    <string name="tuesday">Ter</string>
+    <string name="wednesday">Qua</string>
+    <string name="thursday">Qui</string>
+    <string name="friday">Sex</string>
+    <string name="saturday">Sáb</string>
+    <string name="sunday">Dom</string>
+    <string name="FixAppBarLayoutBehavior" translatable="false">com.corporacao.capsula.componentes.appbar.FixAppBarLayoutBehavior</string>
+    <string name="progress_mensagem_padrao">Processando…</string>
+    <string name="description">Descrição</string>
+    <string name="hotel">Hotel</string>
+    <string name="teste">TESTE</string>
+    <string name="prompt_expense_type">Tipo Despesa</string>
+    <string name="prompt_note_number">Número Da Nota</string>
+    <string name="prompt_date">Data</string>
+    <string name="prompt_liter">Litragem</string>
+    <string name="prompt_value">Valor</string>
+    <string name="prompt_description">Descrição</string>
+    <string name="prompt_state">Estado</string>
+    <string name="prompt_city">Cidade</string>
+    <string name="prompt_zero_real">R$ 0,00</string>
+    <string name="prompt_liter_zero">0,00</string>
+    <string name="imagem_selecionada">Imagem selecionada</string>
+    <string name="prompt_state_sample">Santa Catarina</string>
+    <string name="todo">TODO</string>
+    <string name="hour">13:45</string>
+</resources>

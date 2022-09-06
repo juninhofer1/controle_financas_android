@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    android:layout_margin="2dp"
+    android:background="?attr/selectableItemBackgroundBorderless"
+    android:gravity="center">
+
+    <ImageView
+        android:id="@+id/image_color"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:padding="15dp"
+        android:layout_margin="5dp"
+        android:src="@drawable/circle_type_finance"
+        app:tint="@color/black"
+        android:contentDescription="@string/todo" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="0dp"
+        android:layout_weight="1.5"
+        android:text="@string/prompt_state_sample"
+        android:textColor="@color/colorPrimaryText"
+        android:textSize="16sp"
+        android:contentDescription="@string/todo"/>
+
+</LinearLayout>

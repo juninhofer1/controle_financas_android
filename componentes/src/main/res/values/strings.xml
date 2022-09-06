@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Componentes</string>
+
+    <string name="monday">Seg</string>
+    <string name="tuesday">Ter</string>
+    <string name="wednesday">Qua</string>
+    <string name="thursday">Qui</string>
+    <string name="friday">Sex</string>
+    <string name="saturday">Sáb</string>
+    <string name="sunday">Dom</string>
+    <string name="FixAppBarLayoutBehavior" translatable="false">com.corporacao.capsula.componentes.appbar.FixAppBarLayoutBehavior</string>
+    <string name="progress_mensagem_padrao">Processando…</string>
+</resources>

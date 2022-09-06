@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.16" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_calendar_row.xml" value="0.1035" />
+        <entry key="app/src/main/res/drawable-hdpi/shape_botton_sheet.xml" value="0.1655" />
+        <entry key="app/src/main/res/drawable-hdpi/shape_header_botton_sheet.xml" value="0.1345" />
+        <entry key="app/src/main/res/drawable-mdpi/text_field_search_background.xml" value="0.131" />
+        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.212" />
+        <entry key="app/src/main/res/drawable/circle_black_solid_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/circle_black_stroke_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/circle_colorprimary_solid_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/circle_colorprimary_stroke_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/circle_type_finance.xml" value="0.135" />
+        <entry key="app/src/main/res/drawable/circle_white_solid_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/circle_white_stroke_background.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/circulo_verde_borda_branca.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_assignment.xml" value="0.1035" />
+        <entry key="app/src/main/res/drawable/ic_baseline_attach_money.xml" value="0.1035" />
+        <entry key="app/src/main/res/drawable/ic_baseline_calendar_month.xml" value="0.129" />
+        <entry key="app/src/main/res/drawable/ic_baseline_check.xml" value="0.1955" />
+        <entry key="app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1035" />
+        <entry key="app/src/main/res/drawable/ic_baseline_location_on.xml" value="0.1955" />
+        <entry key="app/src/main/res/drawable/ic_baseline_room_service.xml" value="0.1035" />
+        <entry key="app/src/main/res/drawable/ic_baseline_save.xml" value="0.1955" />
+        <entry key="app/src/main/res/drawable/ic_baseline_search.xml" value="0.212" />
+        <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.129" />
+        <entry key="app/src/main/res/drawable/ripple_effect.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/rounded_dialog.xml" value="0.2025" />
+        <entry key="app/src/main/res/drawable/shape_accent_with_smooth_border.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/shape_botton_sheet.xml" value="0.12" />
+        <entry key="app/src/main/res/drawable/shape_button_primary.xml" value="0.105" />
+        <entry key="app/src/main/res/drawable/shape_header_botton_sheet.xml" value="0.1085" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_main2.xml" value="0.16510416666666666" />
+        <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/activity_scrolling.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22" />
+        <entry key="app/src/main/res/layout/bottom_sheet_expense_type.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/botton_register_expense_type.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/botton_sheet_cities.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/botton_sheet_expense_type_options.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/botton_sheet_register_expense_type.xml" value="0.47401247401247404" />
+        <entry key="app/src/main/res/layout/botton_sheet_states.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/content_main.xml" value="0.2128623188405797" />
+        <entry key="app/src/main/res/layout/day_layout.xml" value="0.13768115942028986" />
+        <entry key="app/src/main/res/layout/fragment_first.xml" value="0.13768115942028986" />
+        <entry key="app/src/main/res/layout/fragment_scheduled_options.xml" value="0.2826086956521739" />
+        <entry key="app/src/main/res/layout/fragment_second.xml" value="0.13768115942028986" />
+        <entry key="app/src/main/res/layout/layout_day_of_week.xml" value="0.13768115942028986" />
+        <entry key="app/src/main/res/layout/layout_not_expense.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/row_atividade.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/row_colors.xml" value="0.75" />
+        <entry key="app/src/main/res/layout/row_expense.xml" value="0.67" />
+        <entry key="app/src/main/res/layout/row_expense_type.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/row_state.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/widget_collapsible_calendarview.xml" value="0.25" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.105" />
+        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.105" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

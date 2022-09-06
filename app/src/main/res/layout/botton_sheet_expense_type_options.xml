@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root_view"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="50dp"
+        android:layout_height="5dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/shape_header_botton_sheet"
+        android:layout_gravity="center"/>
+
+
+    <ViewSwitcher
+        android:id="@+id/view_switcher"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateFirstView="true"
+        android:animateLayoutChanges="true">
+
+        <RelativeLayout
+            android:id="@+id/container_motivos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rc_motivos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/row_expense_type" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/edit_text_expense_type"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/rc_motivos"
+                android:layout_marginHorizontal="15dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginBottom="5dp"
+                android:background="@drawable/text_field_search_background"
+                android:drawableStart="@drawable/ic_baseline_search"
+                android:hint="@string/prompt_expense_type"
+                android:imeOptions="actionDone"
+                android:inputType="text"
+                android:textColorHint="@color/light_gray"
+                android:textSize="19sp" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/edit_text_expense_type"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:padding="2dp"
+                android:background="@drawable/circle_type_finance"
+                android:backgroundTint="@color/bottom_sheet_background"
+                android:layout_marginBottom="-38dp">
+
+                <ImageView
+                    android:id="@+id/img_circulo"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/circle_type_finance"
+                    app:tint="@color/colorSecondaryVariant" />
+
+                <ImageView
+                    android:id="@+id/image_add"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:padding="5dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/fab_add"
+                    app:tint="@color/white" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </ViewSwitcher>
+
+</LinearLayout>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.buffalo.controlefinancas.ui.MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:animateLayoutChanges="true"
+        tools:ignore="MissingDefaultResource">
+
+        <RelativeLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:animateLayoutChanges="true"
+            tools:ignore="PrivateResource">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bgk_main_activity"
+                android:scaleType="centerCrop"/>
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:id="@+id/main_appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:elevation="0dp"
+                android:background="@color/transparent"
+                style="@style/AppTheme.PopupOverlay"
+                app:layout_behavior="@string/FixAppBarLayoutBehavior">
+
+                <com.google.android.material.appbar.MaterialToolbar
+                    android:id="@+id/main_toolbar"
+                    style="@style/ToolbarStyle"
+                    android:theme="@style/ToolbarStyle"
+                    android:layout_width="match_parent"
+                    android:layout_height="?android:attr/actionBarSize"
+                    app:contentInsetLeft="0dp"
+                    app:contentInsetStart="0dp"
+                    android:elevation="0dp"
+                    app:title="DESPESAS E GASTOS"
+                    app:titleTextColor="@color/white"
+                    app:titleMarginStart="15dp"
+                    app:layout_collapseMode="pin">
+
+                </com.google.android.material.appbar.MaterialToolbar>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@+id/mcv_month">
+
+                <LinearLayout
+                    android:id="@+id/container_msm"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:visibility="invisible">
+
+                    <include layout="@layout/layout_not_expense" />
+
+                </LinearLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rc_atividade"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="8dp"
+                    android:clickable="false"
+                    android:fillViewport="true"
+                    android:focusable="false"
+                    android:nestedScrollingEnabled="false"
+                    android:visibility="visible"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                    tools:listitem="@layout/row_expense" />
+
+            </RelativeLayout>
+
+            <com.buffalo.controlefinancas.components.CollapsibleCalendarAgenda
+                android:id="@+id/mcv_month"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/main_appbar"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="30dp"
+                android:paddingTop="4dp"
+                app:badge_background="@drawable/circle_colorprimary_solid_background"
+                app:buttonLeft_drawableTintColor="@color/white"
+                app:buttonRight_drawableTintColor="@color/white"
+                app:eventColor="@color/white"
+                app:expandIconColor="@color/white"
+                app:firstDayOfWeek="saturday"
+                app:layout_anchor="@+id/main_appbar"
+                app:layout_anchorGravity="center|bottom"
+                app:selectedItem_background="@drawable/circle_colorprimary_solid_background"
+                app:selectedItem_textColor="@color/white"
+                app:state="collapsed"
+                app:textColor="@color/white"
+                app:todayItem_background="@drawable/circle_colorprimary_stroke_background"
+                app:todayItem_textColor="@color/white" />
+
+            <com.github.clans.fab.FloatingActionMenu
+                android:id="@+id/floating_action_button_add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                app:menu_colorNormal="@color/colorSecondaryVariant"
+                app:menu_colorPressed="@color/colorSecondary"
+                app:menu_colorRipple="@color/colorPrimaryLight">
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/menu_item_add"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_attach_money"
+                    app:fab_colorNormal="@color/colorSecondaryVariant"
+                    app:fab_colorPressed="@color/colorSecondary"
+                    app:fab_colorRipple="@color/colorPrimaryLight"
+                    fab:fab_label="Adicionar Despesa"
+                    fab:fab_size="mini" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/menu_item_create_ex"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_assignment"
+                    app:fab_colorNormal="@color/colorSecondaryVariant"
+                    app:fab_colorPressed="@color/colorSecondary"
+                    app:fab_colorRipple="@color/colorPrimaryLight"
+                    fab:fab_label="Gerar Planilha"
+                    fab:fab_size="mini" />
+
+                <com.github.clans.fab.FloatingActionButton
+                    android:id="@+id/menu_item_add_event"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_baseline_room_service"
+                    app:fab_colorNormal="@color/colorSecondaryVariant"
+                    app:fab_colorPressed="@color/colorSecondary"
+                    app:fab_colorRipple="@color/colorPrimaryLight"
+                    fab:fab_label="Tipos Despesas"
+                    fab:fab_size="mini" />
+
+            </com.github.clans.fab.FloatingActionMenu>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+

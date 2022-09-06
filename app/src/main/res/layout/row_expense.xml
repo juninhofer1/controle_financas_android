@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="8dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:baselineAligned="false"
+        android:gravity="center|start"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/img_criador"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:src="@drawable/circulo_verde_borda_branca"
+            android:visibility="gone"/>
+
+<!--        <TextView-->
+<!--            android:id="@+id/txt_nome_atividade"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="8dp"-->
+<!--            android:gravity="start|center"-->
+<!--            android:maxLines="2"-->
+<!--            android:minLines="2"-->
+<!--            android:textColor="@color/colorPrimaryText"-->
+<!--            android:textSize="@dimen/row_atividade_title_sp"-->
+<!--            tools:text="Mercado" />-->
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:baselineAligned="false"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:id="@+id/rl_hour_status"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/view_linha_up"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/guideCenter"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorAccent"
+                android:visibility="gone" />
+
+            <Space
+                android:id="@+id/guideCenter"
+                android:layout_width="1dp"
+                android:layout_height="1dp"
+                android:layout_centerInParent="true" />
+
+            <View
+                android:id="@+id/view_linha_down"
+                android:layout_width="3dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/guideCenter"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorAccent"
+                android:visibility="gone" />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true">
+
+                <ImageView
+                    android:id="@+id/img_circulo"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/circle_type_finance"
+                    app:tint="@color/blue" />
+
+                <TextView
+                    android:id="@+id/txt_hora_why"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:gravity="center"
+                    android:text="@string/hour"
+                    android:textColor="@color/md_white_1000"
+                    android:textSize="11sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/relative_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp">
+
+            <LinearLayout
+                android:id="@+id/relative_info_atividade"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:layout_marginTop="5dp">
+
+                        <TextView
+                            android:id="@+id/label_txt_descricao"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/hotel"
+                            android:textColor="@color/colorPrimaryText"
+                            android:textSize="@dimen/row_atividade_label_sp" />
+
+
+                        <TextView
+                            android:id="@+id/txt_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:text="R$ 1.000,00"
+                            android:textColor="@color/green"
+                            android:textSize="@dimen/row_atividade_sp" />
+
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/txt_descricao"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginEnd="0dp"
+                        android:textColor="@color/colorSecondaryText"
+                        android:textSize="@dimen/row_atividade_sp"
+                        android:text="Parada para repousar devido ao horarário de viagem" />
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginBottom="5dp">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/ic_calendar"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:visibility="gone"
+                            android:src="@drawable/ic_calendar_row"
+                            app:tint="@color/colorSecondaryText" />
+
+                        <TextView
+                            android:id="@+id/txt_data_hora_fim"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_toEndOf="@+id/ic_calendar"
+                            android:gravity="start"
+                            android:text="23/10/18"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="@dimen/row_atividade_sp" />
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_alignParentEnd="true">
+
+                        <ImageView
+                            android:id="@+id/ic_locale"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:src="@drawable/ic_baseline_location_on"
+                            app:tint="@color/colorSecondaryText" />
+
+                        <TextView
+                            android:id="@+id/txt_locale"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_toEndOf="@+id/ic_locale"
+                            android:gravity="start"
+                            android:text="Joinvile SC"
+                            android:textColor="@color/colorSecondaryText"
+                            android:textSize="@dimen/row_atividade_sp"
+                            android:visibility="visible" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+<!--                <View-->
+<!--                    android:id="@+id/divider"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="1dp"-->
+<!--                    android:layout_below="@id/txt_tipo_atividade"-->
+<!--                    android:layout_marginTop="5dp"-->
+<!--                    android:background="@color/colorSecondaryText" />-->
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

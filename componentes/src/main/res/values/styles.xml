@@ -1,0 +1,47 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:autoCompleteTextViewStyle">@style/autoCompleteTextView.Calendario</item>
+        <item name="android:buttonStyle">@style/buttonStyle.OuroVerde</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="DefaultFont" parent="@android:style/Widget.TextView">
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+    </style>
+
+    <style name="autoCompleteTextView.Calendario" parent="Widget.AppCompat.AutoCompleteTextView">
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+    </style>
+
+    <style name="buttonStyle.OuroVerde" parent="android:Widget.Material.Button" tools:ignore="NewApi">
+        <item name="android:background">@drawable/ripple_effect</item>
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="ExpandedAppBar">
+        <item name="android:textSize">22sp</item>
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+
+    <style name="CollapsedAppBar">
+        <item name="android:fontFamily">@font/proxima_nova_bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

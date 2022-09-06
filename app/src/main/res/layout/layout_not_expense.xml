@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true">
+
+    <ImageView
+        android:id="@+id/image_warning"
+        android:layout_width="wrap_content"
+        android:layout_height="130dp"
+        android:src="@drawable/ic_not_expense"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/teste" />
+
+    <TextView
+        android:id="@+id/text_warning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/image_warning"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="-15dp"
+        android:gravity="center"
+        android:text="Nenhuma gasto encontrado\n para o dia selecionado"
+        android:textSize="20sp" />
+
+</RelativeLayout>

@@ -1,0 +1,16 @@
+<resources>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!-- day -->
+    <dimen name="day_circle_width">24dp</dimen>
+    <dimen name="day_circle_height">24dp</dimen>
+    <dimen name="day_circle_radius">120dp</dimen>
+    <dimen name="day_circle_stroke_width">1dp</dimen>
+    <dimen name="day_circle_badge_width">15dp</dimen>
+    <dimen name="day_circle_badge_height">15dp</dimen>
+    <dimen name="margin_top_menu_button">-10dp</dimen>
+    <dimen name="margim_top_menu_button">5dp</dimen>
+
+</resources>
