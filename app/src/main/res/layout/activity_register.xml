@@ -69,154 +69,164 @@
                 app:cardUseCompatPadding="true">
 
                 <RelativeLayout
+                    android:layout_marginBottom="35dp"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
 
-
-                    <LinearLayout
+                    <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="20dp"
-                        android:layout_marginTop="20dp"
-                        android:layout_marginEnd="20dp"
-                        android:layout_marginBottom="20dp"
-                        android:orientation="vertical">
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentBottom="true">
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/text_imput_expense_type"
+                        <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edit_text_expense_type"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:focusableInTouchMode="false"
-                                android:hint="@string/prompt_expense_type"
-                                android:imeOptions="actionNext"
-                                android:inputType="textPersonName|textCapWords" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/text_input_liter"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edit_text_description"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/prompt_description"
-                                android:imeOptions="actionNext"
-                                android:inputType="textCapSentences" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/text_input_value"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edit_text_value"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:hint="@string/prompt_value"
-                                android:imeOptions="actionNext"
-                                android:text="@string/prompt_zero_real" />
-
-                        </com.google.android.material.textfield.TextInputLayout>
-
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/text_imput_liter"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="20dp"
                             android:layout_marginTop="8dp"
-                            android:visibility="gone"
-                            tools:visibility="visible" >
+                            android:layout_marginEnd="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:orientation="vertical">
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edit_text_liter"
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/text_imput_expense_type"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/prompt_liter"
-                                android:imeOptions="actionNext"
-                                android:inputType="number"
-                                android:text="@string/prompt_liter_zero"/>
+                                android:layout_marginTop="5dp">
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_expense_type"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:focusableInTouchMode="false"
+                                    android:hint="@string/prompt_expense_type"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="textPersonName|textCapWords" />
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/text_input_date"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp">
+                            </com.google.android.material.textfield.TextInputLayout>
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edit_text_date"
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/text_input_liter"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:focusableInTouchMode="false"
-                                android:hint="@string/prompt_date"
-                                android:imeOptions="actionNext"
-                                android:inputType="number" />
+                                android:layout_marginTop="5dp">
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_description"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/prompt_description"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="textCapSentences" />
 
+                            </com.google.android.material.textfield.TextInputLayout>
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:id="@+id/text_input_note_number"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp">
-
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edit_text_note_number"
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/text_input_value"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/prompt_note_number"
-                                android:imeOptions="actionNext"
-                                android:inputType="text" />
+                                android:layout_marginTop="5dp">
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_value"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/prompt_value"
+                                    android:imeOptions="actionNext"
+                                    android:text="@string/prompt_zero_real" />
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp">
+                            </com.google.android.material.textfield.TextInputLayout>
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edit_text_states"
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/text_imput_liter"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/prompt_state"
-                                android:focusableInTouchMode="false"
-                                android:imeOptions="actionNext"
-                                android:inputType="textPersonName|textCapWords" />
+                                android:layout_marginTop="8dp"
+                                android:visibility="gone"
+                                tools:visibility="visible">
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_liter"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/prompt_liter"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="number"
+                                    android:text="@string/prompt_liter_zero" />
 
-                        <com.google.android.material.textfield.TextInputLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp">
+                            </com.google.android.material.textfield.TextInputLayout>
 
-                            <com.google.android.material.textfield.TextInputEditText
-                                android:id="@+id/edit_text_cities"
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/text_input_date"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:hint="@string/prompt_city"
-                                android:focusableInTouchMode="false"
-                                android:imeOptions="actionNext"
-                                android:inputType="textPersonName|textCapWords" />
+                                android:layout_marginTop="5dp">
 
-                        </com.google.android.material.textfield.TextInputLayout>
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_date"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:focusableInTouchMode="false"
+                                    android:hint="@string/prompt_date"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="number" />
 
-                    </LinearLayout>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/text_input_note_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_note_number"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/prompt_note_number"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="text" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_states"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:focusableInTouchMode="false"
+                                    android:hint="@string/prompt_state"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="textPersonName|textCapWords" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="10dp">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_cities"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:focusableInTouchMode="false"
+                                    android:hint="@string/prompt_city"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="textPersonName|textCapWords" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                    </ScrollView>
+
+
 
                 </RelativeLayout>
 
