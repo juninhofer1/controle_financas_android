@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+        <net.cachapa.expandablelayout.ExpandableLayout
+            android:id="@+id/container_expadable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:el_duration="500"
+            app:el_expanded="false"
+            app:el_parallax="0"
+            tools:el_expanded="true">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@drawable/shape_filter_layout">
+
+                    <RelativeLayout
+                    android:id="@+id/container_motivos"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/size8">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_start_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="12dp"
+                            android:layout_marginBottom="5dp"
+                            android:background="@drawable/text_field_search_background"
+                            android:drawableStart="@drawable/ic_calendar_row"
+                            android:focusableInTouchMode="false"
+                            android:hint="@string/prompt_start_date"
+                            android:gravity="center"
+                            android:inputType="text"
+                            android:textColor="@color/divider"
+                            android:textColorHint="@color/light_gray"
+                            android:textSize="19sp" />
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/edit_text_final_date"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/edit_text_start_date"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginBottom="5dp"
+                            android:focusableInTouchMode="false"
+                            android:background="@drawable/text_field_search_background"
+                            android:drawableStart="@drawable/ic_calendar_row"
+                            android:hint="@string/prompt_final_date"
+                            android:gravity="center"
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
+                            android:textColor="@color/divider"
+                            android:textColorHint="@color/light_gray"
+                            android:textSize="19sp" />
+
+                        <Button
+                            android:id="@+id/btn_filter"
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:layout_below="@id/edit_text_final_date"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="5dp"
+                            android:backgroundTint="@color/colorSecondaryVariant"
+                            android:elevation="40dp"
+                            android:text="@string/propt_filter"
+                            android:textColor="@color/white" />
+                </RelativeLayout>
+            </LinearLayout>
+        </net.cachapa.expandablelayout.ExpandableLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

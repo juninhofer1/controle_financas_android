@@ -3,6 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.buffalo.controlefinancas">
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:name=".MainApplication"
@@ -12,8 +16,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.ControleFinancas"
+        android:installLocation="preferExternal"
         tools:targetApi="31">
+
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_paths" />
+
+        </provider>
 
         <activity
             android:name=".SplashActivity"
@@ -29,6 +47,13 @@
 
         <activity
             android:name=".ui.MainActivity"
+            android:exported="true"
+            android:screenOrientation="locked"
+            android:theme="@style/Theme.ControleFinancas.NoActionBar">
+        </activity>
+
+        <activity
+            android:name=".ui.chart.ChartExpenseActivity"
             android:exported="true"
             android:screenOrientation="locked"
             android:theme="@style/Theme.ControleFinancas.NoActionBar">

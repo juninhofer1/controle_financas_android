@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat
@@ -18,14 +17,12 @@ import com.buffalo.controlefinancas.R
 import com.buffalo.controlefinancas.model.Expense
 import com.buffalo.controlefinancas.util.ColorUtil
 import com.buffalo.controlefinancas.util.DateUtil
-import com.buffalo.controlefinancas.util.formatDoubleLiterToString
-import com.buffalo.controlefinancas.util.formatDoubleMoneyToString
 import java.text.NumberFormat
 import java.util.*
 
 
-class ExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
-    RecyclerView.Adapter<ExpenseAdapter.ViewHolder>() {
+class FilterExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
+    RecyclerView.Adapter<FilterExpenseAdapter.ViewHolder>() {
 
     val mData: MutableList<Expense>
     private var mContext: Context? = null
@@ -36,7 +33,7 @@ class ExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
 
     @NonNull
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ViewHolder {
-        val lViewInflated: View = LayoutInflater.from(parent.context).inflate(R.layout.row_expense, parent, false)
+        val lViewInflated: View = LayoutInflater.from(parent.context).inflate(R.layout.row_mini_expense, parent, false)
         return ViewHolder(lViewInflated)
     }
 
@@ -51,6 +48,11 @@ class ExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
         holder.itemView.setOnClickListener {
             listener.onItemClick(lExpense)
         }
+    }
+
+    fun Double.formatDoubleMoneyToString(): String {
+        val numberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
+        return numberFormat.format(this)
     }
 
     fun setTextColorHour(textView: TextView, hexdecimal: String) {
@@ -79,14 +81,6 @@ class ExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
         setTextColorHour(aHolder.mHoraWhy, aExpense.expenseType!!.color!!)
         aHolder.imageLineUp.setBackgroundColor(Color.parseColor(aExpense.expenseType!!.color))
         aHolder.imageLineDown.setBackgroundColor(Color.parseColor(aExpense.expenseType!!.color))
-
-        if(aExpense.expenseType!!.descricao.equals("Combustível")) {
-            aHolder.mRelativeLayout.visibility = View.VISIBLE
-            aHolder.mTextKm.text = aExpense.km.toString()
-            aHolder.mTextFuel.text = aExpense.literage?.formatDoubleLiterToString()
-        } else {
-            aHolder.mRelativeLayout.visibility = View.GONE
-        }
 
         if(mData.size > 1) {
             if(position == 0) {
@@ -123,11 +117,11 @@ class ExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
 
     fun clear() {
         mData.clear()
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, mData.size)
     }
 
     fun update() {
-        notifyDataSetChanged()
+        notifyItemRangeChanged(0, mData.size)
     }
 
     fun remove(expense: Expense) {
@@ -135,7 +129,7 @@ class ExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
         mData.removeAt(removeIndex)
         notifyItemRemoved(removeIndex)
         if(mData.size != 0) {
-            notifyDataSetChanged()
+            notifyItemRangeChanged(0, mData.size)
         }
     }
 
@@ -158,11 +152,6 @@ class ExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
         var imageLineDown: View
         var imageViewCircle : ImageView
 
-        var mTextKm: TextView
-        var mTextFuel: TextView
-
-        var mRelativeLayout: RelativeLayout
-
         init {
             mType = aItemView.findViewById(R.id.label_txt_descricao)
             mHoraWhy = aItemView.findViewById(R.id.txt_hora_why)
@@ -173,11 +162,6 @@ class ExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expense>) :
             imageLineDown  = aItemView.findViewById(R.id.view_linha_down)
             imageViewCircle = aItemView.findViewById(R.id.img_circulo)
             mLocalizacao = aItemView.findViewById(R.id.txt_locale)
-
-            mTextKm = aItemView.findViewById(R.id.txt_km)
-            mTextFuel = aItemView.findViewById(R.id.txt_fuel)
-
-            mRelativeLayout = aItemView.findViewById(R.id.container_fuel)
         }
     }
 

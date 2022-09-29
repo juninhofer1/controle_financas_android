@@ -19,8 +19,8 @@
             <ImageView
                 android:id="@+id/btn_prev_month"
 
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/calendar_arrow_size"
+                android:layout_height="@dimen/calendar_arrow_size"
                 android:layout_margin="2dp"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
@@ -28,8 +28,8 @@
 
             <ImageView
                 android:id="@+id/btn_next_month"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/calendar_arrow_size"
+                android:layout_height="@dimen/calendar_arrow_size"
                 android:layout_margin="2dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
@@ -44,8 +44,8 @@
 
             <ImageView
                 android:id="@+id/btn_prev_week"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/calendar_arrow_size"
+                android:layout_height="@dimen/calendar_arrow_size"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_marginStart="2dp"
@@ -56,8 +56,8 @@
 
             <ImageView
                 android:id="@+id/btn_next_week"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="@dimen/calendar_arrow_size"
+                android:layout_height="@dimen/calendar_arrow_size"
                 android:layout_margin="2dp"
                 android:layout_alignParentRight="true"
                 android:layout_alignParentEnd="true"
@@ -71,9 +71,9 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:padding="8dp"
+            android:text="@string/jun_1986"
             android:textColor="@android:color/black"
-            android:textSize="16sp"
-            android:text="Jun 1986" />
+            android:textSize="@dimen/calendar_text_moth" />
 
     </RelativeLayout>
 
@@ -101,8 +101,8 @@
 
     <com.buffalo.controlefinancas.util.calendario.view.ExpandIconView
         android:id="@+id/expandIcon"
-        android:layout_width="20dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/calendar_bottom_arrow_size"
+        android:layout_height="@dimen/calendar_bottom_arrow_size"
         android:layout_gravity="center"
         android:visibility="visible"
         app:eiv_animationDuration="300"

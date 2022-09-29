@@ -1,7 +1,9 @@
 package com.buffalo.controlefinancas.database
 
+import android.util.Log
 import com.buffalo.controlefinancas.model.Expense
 import com.buffalo.controlefinancas.model.ExpenseType
+import com.buffalo.controlefinancas.model.FilterExpenseType
 import com.buffalo.controlefinancas.util.BaseDao
 import io.realm.Realm
 import io.realm.Sort
@@ -94,5 +96,44 @@ object ExpenseDao : BaseDao<Long, Expense> {
             realm.close()
         }
         return list
+    }
+
+    fun loadByDateExpenseTypeShort(startDate: Date, finalDate : Date): List<Expense>? {
+        var list : MutableList<Expense>? = null
+        val realm = Realm.getDefaultInstance()
+        try {
+            val realInfos = realm.where(Expense::class.java)
+                .greaterThanOrEqualTo("dataRegiter",startDate)
+                .lessThan("dataRegiter",finalDate)
+                .beginGroup()
+                .sort("expenseType", Sort.ASCENDING)
+                .endGroup()
+                .findAll()
+            list = realm.copyFromRealm(realInfos)
+        } catch (ex : Exception) {
+            ex.printStackTrace()
+        } finally {
+            realm.close()
+        }
+        return list
+    }
+
+
+
+    fun totalExpenses(startDate: Date, finalDate : Date): Double {
+        val realm = Realm.getDefaultInstance()
+        try {
+            val value = realm.where(Expense::class.java)
+                .greaterThanOrEqualTo("dataRegiter",startDate)
+                .lessThan("dataRegiter",finalDate)
+                .sort("dataRegiter", Sort.ASCENDING)
+                .sum("amount")
+            return value.toDouble()
+        } catch (ex : Exception) {
+            ex.printStackTrace()
+        } finally {
+            realm.close()
+        }
+        return 0.0
     }
 }

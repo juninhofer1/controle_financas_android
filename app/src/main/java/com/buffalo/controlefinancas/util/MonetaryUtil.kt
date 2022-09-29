@@ -54,3 +54,15 @@ fun Double.formatDoubleMoneyToString(): String{
     val numberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR"))
     return numberFormat.format(this)
 }
+
+fun Double.formatDoublePecentToString(): String{
+    val numberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(this)
+        .replace("[R$\\s]".toRegex(), "")
+    return "${numberFormat}%"
+}
+
+fun Double.formatDoubleLiterToString(): String{
+    val numberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "BR")).format(this)
+        .replace("[R$\\s]".toRegex(), "")
+    return "${numberFormat}"
+}

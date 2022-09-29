@@ -25,11 +25,10 @@ class StateAdapter(aExpenseType: MutableList<State>, listener : Listener) :
         super.onAttachedToRecyclerView(recyclerView)
     }
 
-
     @NonNull
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ViewHolder {
         val lViewInflated: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.row_state, null)
+            LayoutInflater.from(parent.context).inflate(R.layout.row_state, parent, false)
         return ViewHolder(lViewInflated)
     }
 

@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Controle Financas</string>
     <string name="action_settings">Settings</string>
+    <string name="action_filter">Filter</string>
     <!-- Strings used for fragments for navigation -->
     <string name="first_fragment_label">First Fragment</string>
     <string name="second_fragment_label">Second Fragment</string>
@@ -36,4 +37,14 @@
     <string name="prompt_state_sample">Santa Catarina</string>
     <string name="todo">TODO</string>
     <string name="hour">13:45</string>
+    <string name="prompt_save">Salvar</string>
+    <string name="prompt_edit">Alterar</string>
+    <string name="prompt_remove">Remover</string>
+
+    <string name="exported_expenses">Exportar Gastos</string>
+    <string name="prompt_start_date">Data Inicial</string>
+    <string name="prompt_final_date">Data Final</string>
+    <string name="propt_filter">Filtrar</string>
+    <string name="km_car">KM do veículo</string>
+    <string name="jun_1986">Jun 1986</string>
 </resources>

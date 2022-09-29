@@ -29,7 +29,7 @@ class ColorExpenseTypeAdapter(aExpenseType: MutableList<ColorExpense>, listener 
     @NonNull
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ViewHolder {
         val lViewInflated: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.row_colors, null)
+            LayoutInflater.from(parent.context).inflate(R.layout.row_colors, parent, false)
         return ViewHolder(lViewInflated)
     }
 

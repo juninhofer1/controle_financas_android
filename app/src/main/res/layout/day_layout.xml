@@ -13,6 +13,7 @@
         android:layout_height="@dimen/day_circle_height"
         android:gravity="center"
         android:textSize="13sp"
+        tools:text="18"
         android:textColor="@android:color/black"
         android:background="@android:color/transparent" />
 
@@ -30,6 +31,7 @@
             android:layout_height="10dp"
             android:src="@drawable/dot_icon"
             android:visibility="gone"
+            tools:visibility="visible"
             tools:ignore="ContentDescription" />
 
     </LinearLayout>

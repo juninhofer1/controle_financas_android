@@ -2,7 +2,6 @@ package com.buffalo.controlefinancas.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Base64
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -13,8 +12,10 @@ import com.buffalo.controlefinancas.components.CollapsibleCalendarAgenda
 import com.buffalo.controlefinancas.database.ExpenseDao
 import com.buffalo.controlefinancas.databinding.ActivityMainBinding
 import com.buffalo.controlefinancas.model.Expense
-import com.buffalo.controlefinancas.model.ExpenseType
+import com.buffalo.controlefinancas.model.props.EOptions
 import com.buffalo.controlefinancas.ui.adapter.ExpenseAdapter
+import com.buffalo.controlefinancas.ui.bottomsheet.BottomSheetOptions
+import com.buffalo.controlefinancas.ui.chart.ChartExpenseActivity
 import com.buffalo.controlefinancas.ui.register.RegisterExpensesActivity
 import com.buffalo.controlefinancas.util.ActionMaps
 import com.buffalo.controlefinancas.util.DateUtil
@@ -22,20 +23,17 @@ import com.buffalo.controlefinancas.util.activity.ActivityUtil
 import com.buffalo.controlefinancas.util.calendario.data.Day
 import com.buffalo.controlefinancas.util.calendario.data.Event
 import com.buffalo.controlefinancas.util.calendario.widget.CollapsibleCalendar
-import com.example.controlefinancas.database.ExpenseTypeDAO
 import es.dmoral.toasty.Toasty
 import java.util.*
-import javax.crypto.Cipher
-import javax.crypto.spec.IvParameterSpec
-import javax.crypto.spec.SecretKeySpec
 
-class MainActivity : AppCompatActivity(), ActionMaps {
+class MainActivity : AppCompatActivity(), ActionMaps, ExpenseAdapter.Listener, BottomSheetOptions.Callback {
 
     private lateinit var binding: ActivityMainBinding
     private var expense : MutableList<Expense> = mutableListOf()
-    private var reciclerView : RecyclerView? = null
+    private var recyclerView : RecyclerView? = null
     private var mAdapter: ExpenseAdapter? = null
     private var customCalendar: CollapsibleCalendarAgenda? = null
+    private var bottomSheetOptions: BottomSheetOptions? = null
     private var selectedDate: Date = Date()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -47,9 +45,9 @@ class MainActivity : AppCompatActivity(), ActionMaps {
     }
 
     private fun showDisplayCalendarList() {
-        mAdapter = ExpenseAdapter(expense)
+        mAdapter = ExpenseAdapter(this, expense)
         mAdapter?.setContext(this)
-        reciclerView?.setAdapter(mAdapter)
+        recyclerView?.adapter = mAdapter
     }
 
     override fun onResume() {
@@ -66,12 +64,20 @@ class MainActivity : AppCompatActivity(), ActionMaps {
         if(binding.floatingActionButtonAdd.isOpened){
             binding.floatingActionButtonAdd.close(true)
         } else {
-            super.onBackPressed()
+            finish()
         }
     }
 
     private fun openRegisterExpense() {
        ActivityUtil.Builder(this@MainActivity, RegisterExpensesActivity::class.java).build()
+    }
+
+    private fun showOptionList(expense: Expense) {
+        bottomSheetOptions = BottomSheetOptions.newInstance(expense)
+        bottomSheetOptions?.let {
+            it.setListener(this)
+            it.show(supportFragmentManager, null)
+        }
     }
 
     private fun createData(searchDate: Date) {
@@ -92,7 +98,7 @@ class MainActivity : AppCompatActivity(), ActionMaps {
             expense.addAll(it.toList())
         }
 
-        if(!expense.isEmpty()) {
+        if(expense.isNotEmpty()) {
             binding.containerMsm.visibility = View.GONE
         } else {
             binding.containerMsm.visibility = View.VISIBLE
@@ -115,22 +121,15 @@ class MainActivity : AppCompatActivity(), ActionMaps {
     override fun mapComponents() {
         customCalendar = binding.mcvMonth
         customCalendar?.post { customCalendar?.expand(400) }
-        reciclerView = binding.rcAtividade
+        recyclerView = binding.rcAtividade
         showDisplayCalendarList()
     }
 
-    private fun getSelectedDay(): Calendar? {
-        val day: Day = customCalendar?.getSelectedDay()!!
-        val lCal = Calendar.getInstance()
-        lCal[day.getYear(), day.getMonth()] = day.getDay()
-        return lCal
-    }
-
-    fun updateCalendarEvents(aAgendamentos: List<Expense?>) {
+    private fun updateCalendarEvents(aEvents: List<Expense?>) {
         val lList: MutableList<Event> = ArrayList<Event>()
-        for (lAgendamento in aAgendamentos) {
+        for (lEvent in aEvents) {
             val lCal = Calendar.getInstance()
-            lCal.time = lAgendamento!!.dataRegiter!!
+            lCal.time = lEvent!!.dataRegiter!!
             lList.add(
                 Event(
                     lCal[Calendar.YEAR], lCal[Calendar.MONTH],
@@ -150,18 +149,18 @@ class MainActivity : AppCompatActivity(), ActionMaps {
 
         binding.menuItemCreateEx.setOnClickListener {
             binding.floatingActionButtonAdd.close(true)
-            Toasty.info(applicationContext, "Em breve", Toasty.LENGTH_LONG).show()
+            ActivityUtil.Builder(this@MainActivity, ChartExpenseActivity::class.java).build()
         }
 
         binding.menuItemAddEvent.setOnClickListener {
             binding.floatingActionButtonAdd.close(true)
-           Toasty.info(applicationContext, "Em breve", Toasty.LENGTH_LONG).show()
+            Toasty.info(applicationContext, "Em breve", Toasty.LENGTH_LONG).show()
         }
 
         customCalendar?.setCalendarListener(object  : CollapsibleCalendar.CalendarListener{
             override fun onDaySelect() {}
             override fun onItemClick(v: View?) {
-                val day: Day? = customCalendar?.getSelectedDay()
+                val day: Day? = customCalendar?.selectedDay
                 selectedDate = DateUtil.data(day.toString(), "dd/MM/yyyy")
                 createData(selectedDate)
                 binding.floatingActionButtonAdd.visibility = View.VISIBLE
@@ -171,7 +170,7 @@ class MainActivity : AppCompatActivity(), ActionMaps {
             override fun onWeekChange(position: Int) {}
         })
 
-        reciclerView?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+        recyclerView?.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 if (dy < 0 && binding.floatingActionButtonAdd.visibility == View.INVISIBLE) {
                     binding.floatingActionButtonAdd.visibility = View.VISIBLE
@@ -179,10 +178,38 @@ class MainActivity : AppCompatActivity(), ActionMaps {
                     binding.floatingActionButtonAdd.visibility = View.INVISIBLE
                 }
             }
-
-            override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
-                super.onScrollStateChanged(recyclerView, newState)
-            }
         })
+    }
+
+    override fun onItemClick(aExpense: Expense?) {
+        aExpense?.let {
+            showOptionList(it)
+        }
+    }
+
+    private fun deleteExpense(expense: Expense) {
+        expense._id?.let { id ->
+            ExpenseDao.deleteById(id)
+            mAdapter?.let {
+                it.remove(expense)
+                if (it.showMsm()) {
+                    binding.containerMsm.visibility = View.VISIBLE
+                }
+            }
+        }
+    }
+
+    override fun onClick(optionMenuEnum: EOptions, expense: Expense) {
+        when (optionMenuEnum) {
+            EOptions.DELETE -> {
+                deleteExpense(expense)
+            }
+            EOptions.EDIT -> {
+                ActivityUtil.Builder(this@MainActivity, RegisterExpensesActivity::class.java).build()
+            }
+            EOptions.SHOW -> {
+
+            }
+        }
     }
 }

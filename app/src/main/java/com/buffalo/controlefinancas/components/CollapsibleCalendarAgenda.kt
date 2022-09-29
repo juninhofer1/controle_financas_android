@@ -11,7 +11,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.*
 
-class CollapsibleCalendarAgenda : CollapsibleCalendar {
+open class CollapsibleCalendarAgenda : CollapsibleCalendar {
     constructor(context: Context) : super(context) {
         config(context)
     }
@@ -40,12 +40,14 @@ class CollapsibleCalendarAgenda : CollapsibleCalendar {
         onMonthChange()
     }
 
-    fun onMonthChange() {
+    private fun onMonthChange() {
         try {
             val lStrDate = mTxtTitle.text.toString()
             var format = SimpleDateFormat("MMM yyyy", Locale.getDefault())
-            val newDate: Date
-            newDate = format.parse(lStrDate)
+            var newDate = Date()
+            format.parse(lStrDate)?.let {
+                newDate = it
+            }
             format = SimpleDateFormat("MMMM yyyy", Locale.getDefault())
             var date = format.format(newDate)
             date = date.substring(0, 1).uppercase(Locale.getDefault()) + date.substring(1)

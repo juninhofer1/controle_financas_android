@@ -19,14 +19,15 @@
             android:id="@+id/coordinator"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:animateLayoutChanges="true"
             tools:ignore="PrivateResource">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:scaleType="centerCrop"
                 android:src="@drawable/bgk_main_activity"
-                android:scaleType="centerCrop"/>
+                android:contentDescription="@string/todo" />
 
             <com.google.android.material.appbar.AppBarLayout
                 android:id="@+id/main_appbar"
@@ -46,7 +47,8 @@
                     app:contentInsetLeft="0dp"
                     app:contentInsetStart="0dp"
                     android:elevation="0dp"
-                    app:title="DESPESAS E GASTOS"
+                    app:title="Despesas Diárias"
+                    app:titleCentered="true"
                     app:titleTextColor="@color/white"
                     app:titleMarginStart="15dp"
                     app:layout_collapseMode="pin">
@@ -75,7 +77,7 @@
                     android:id="@+id/rc_atividade"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginHorizontal="13dp"
                     android:layout_marginTop="8dp"
                     android:clickable="false"
                     android:fillViewport="true"
@@ -93,8 +95,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/main_appbar"
-                android:layout_marginStart="30dp"
-                android:layout_marginEnd="30dp"
+                android:layout_marginHorizontal="@dimen/calendar_home_margim_horizontal"
                 android:paddingTop="4dp"
                 app:badge_background="@drawable/circle_colorprimary_solid_background"
                 app:buttonLeft_drawableTintColor="@color/white"

@@ -99,7 +99,7 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        onBackPressed()
+        finish()
         return super.onSupportNavigateUp()
     }
 
@@ -131,8 +131,9 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
                     this.descricao = binding.editTextDescription.text.toString()
                     this.literage = binding.editTextLiter.text.toString().valueToDouble()
                     this.amount = binding.editTextValue.text.toString().valueToDouble()
-                    this.numberTicket = binding.editTextNoteNumber.toString()
+                    this.numberTicket = binding.editTextNoteNumber.text.toString()
                     this.dataRegiter = calendar.time
+                    this.km = getKM()
                     this.state = mState!!.sigla
                     this.city = mCity
                 }
@@ -144,7 +145,14 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
         }
     }
 
-    private fun registerExpense() : Boolean {
+    private fun getKM(): Long {
+        if(binding.editTextKm.text!!.isEmpty()) {
+            return 0
+        }
+        return binding.editTextKm.text.toString().toLong()
+    }
+
+    private fun registerExpense(): Boolean {
         binding.editTextExpenseType.error = null
         if (mExpenseType == null) {
             binding.editTextExpenseType.error = "Informe o tipo de despesa"
@@ -159,16 +167,21 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
 
         binding.editTextValue.error = null
         val valueMonetary = binding.editTextValue.text.toString().valueToDouble()
-        if (valueMonetary == 0.0
-        ) {
+        if (valueMonetary == 0.0) {
             binding.editTextValue.error = "Informe o valor da despesa"
             return false
         }
 
         if(mExpenseType!!.descricao.equals("Combustível")) {
             val liter = binding.editTextLiter.text.toString().valueToDouble()
-            if(liter > 0) {
+            if(liter == 0.0) {
                 binding.editTextLiter.error = "Informe a litragem de combustível"
+                return false
+            }
+
+            if(binding.editTextKm.text!!.isEmpty()) {
+                binding.editTextKm.error = "Informa a quilometragem do seu veículo"
+                return false
             }
         }
 
@@ -194,23 +207,13 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
 
         val dpd = DatePickerDialog(this, { _, _year, monthOfYear, dayOfMonth ->
             calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-            calendar.set(Calendar.MONTH, month)
+            calendar.set(Calendar.MONTH, monthOfYear)
             calendar.set(Calendar.YEAR, _year)
             binding.editTextDate.setText(DateUtil.data("dd/MM/yyyy HH:mm", calendar.time))
             showTimePicker()
         }, year, month, day)
         dpd.datePicker.maxDate = Calendar.getInstance().timeInMillis
         dpd.show()
-    }
-
-    fun setExpenseType(newValue : ExpenseType) {
-        binding.editTextExpenseType.error = null
-        binding.editTextExpenseType.setText(newValue.descricao)
-        if(mExpenseType!!.descricao.equals("Combustível")) {
-            binding.textImputLiter.visibility = View.VISIBLE
-        } else {
-            binding.textImputLiter.visibility = View.GONE
-        }
     }
 
     private fun showTimePicker() {
@@ -223,10 +226,22 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
                 calendar.set(Calendar.MINUTE, _minute)
                 binding.editTextDate.setText(DateUtil.data("dd/MM/yyyy HH:mm", calendar.time))
             },
-                hourOfDay,
-                minute,
+            hourOfDay,
+            minute,
             true)
             .show()
+    }
+
+    fun setExpenseType(newValue : ExpenseType) {
+        binding.editTextExpenseType.error = null
+        binding.editTextExpenseType.setText(newValue.descricao)
+        if(mExpenseType!!.descricao.equals("Combustível")) {
+            binding.textImputKm.visibility = View.VISIBLE
+            binding.textImputLiter.visibility = View.VISIBLE
+        } else {
+            binding.textImputKm.visibility = View.GONE
+            binding.textImputLiter.visibility = View.GONE
+        }
     }
 
     override fun onItemClick(aAtividade: ExpenseType?) {

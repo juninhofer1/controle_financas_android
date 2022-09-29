@@ -1,5 +1,10 @@
 package com.buffalo.controlefinancas.util
 
+import android.app.DatePickerDialog
+import android.app.TimePickerDialog
+import android.content.Context
+import android.widget.EditText
+import android.widget.TimePicker
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -97,5 +102,38 @@ object DateUtil {
         lMinCalendar.set(Calendar.SECOND, 0)
         lMinCalendar.set(Calendar.MILLISECOND, 0)
         return lMinCalendar
+    }
+
+    fun showDatePicker(context: Context, calendar: Calendar, editText: EditText, maxDate: Long?, minDate: Long?) {
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val dpd = DatePickerDialog(context, { _, _year, monthOfYear, dayOfMonth ->
+            calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            calendar.set(Calendar.MONTH, monthOfYear)
+            calendar.set(Calendar.YEAR, _year)
+            editText.setText(data("dd/MM/yyyy HH:mm", calendar.time))
+            showTimePicker(context, calendar, editText)
+        }, year, month, day)
+        minDate?.let { dpd.datePicker.minDate = it }
+        maxDate?.let { dpd.datePicker.maxDate = it }
+        dpd.show()
+    }
+
+    private fun showTimePicker(context: Context, calendar: Calendar, editText: EditText) {
+        val hourOfDay = calendar.get(Calendar.HOUR_OF_DAY)
+        val minute = calendar.get(Calendar.MINUTE)
+        TimePickerDialog(
+            context,
+            { _: TimePicker?, hour: Int, _minute: Int ->
+                calendar.set(Calendar.HOUR_OF_DAY, hour)
+                calendar.set(Calendar.MINUTE, _minute)
+                editText.setText(data("dd/MM/yyyy HH:mm", calendar.time))
+            },
+            hourOfDay,
+            minute,
+            true
+        ).show()
     }
 }

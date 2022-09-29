@@ -1,3 +1,4 @@
 <resources>
     <dimen name="fab_margin">200dp</dimen>
+    <integer name="text_chart_description">13</integer>
 </resources>

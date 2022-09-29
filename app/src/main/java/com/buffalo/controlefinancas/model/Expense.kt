@@ -15,5 +15,6 @@ open class Expense (
     var numberTicket : String? = null,
     var state : String? = null,
     var city : String? = null,
+    var km : Long? = null,
     var expenseType : ExpenseType? = null
 ) : RealmObject(), Serializable

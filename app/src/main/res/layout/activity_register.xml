@@ -45,7 +45,8 @@
                     app:contentInsetLeft="0dp"
                     app:contentInsetStart="0dp"
                     android:elevation="0dp"
-                    app:title="REGISTRAR  DESPESA"
+                    app:title="Registrar Despesa"
+                    app:titleCentered="true"
                     app:titleTextColor="@color/white"
                     app:titleMarginStart="15dp"
                     app:layout_collapseMode="pin">
@@ -157,6 +158,24 @@
                             </com.google.android.material.textfield.TextInputLayout>
 
                             <com.google.android.material.textfield.TextInputLayout
+                                android:id="@+id/text_imput_km"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="8dp"
+                                android:visibility="gone"
+                                tools:visibility="visible">
+
+                                <com.google.android.material.textfield.TextInputEditText
+                                    android:id="@+id/edit_text_km"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:hint="@string/km_car"
+                                    android:imeOptions="actionNext"
+                                    android:inputType="number" />
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <com.google.android.material.textfield.TextInputLayout
                                 android:id="@+id/text_input_date"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -185,7 +204,7 @@
                                     android:layout_height="wrap_content"
                                     android:hint="@string/prompt_note_number"
                                     android:imeOptions="actionNext"
-                                    android:inputType="text" />
+                                    android:inputType="number" />
 
                             </com.google.android.material.textfield.TextInputLayout>
 
@@ -225,9 +244,6 @@
                         </LinearLayout>
 
                     </ScrollView>
-
-
-
                 </RelativeLayout>
 
             </androidx.cardview.widget.CardView>
@@ -240,18 +256,13 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginBottom="10dp"
-                android:elevation="40dp"
-                android:textColor="@color/white"
-
                 android:backgroundTint="@color/colorSecondaryVariant"
-                android:text="Salvar Despesas" />
+                android:elevation="40dp"
+                android:text="@string/prompt_save"
+                android:textColor="@color/white" />
 
         </RelativeLayout>
-
-
     </RelativeLayout>
-
-
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

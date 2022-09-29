@@ -32,7 +32,7 @@ class ExpenseTypeAdapter(aExpenseType: MutableList<ExpenseType>, listener : List
     @NonNull
     override fun onCreateViewHolder(@NonNull parent: ViewGroup, viewType: Int): ViewHolder {
         val lViewInflated: View =
-            LayoutInflater.from(parent.context).inflate(R.layout.row_expense_type, null)
+            LayoutInflater.from(parent.context).inflate(R.layout.row_expense_type, parent, false)
         return ViewHolder(lViewInflated)
     }
 
