@@ -73,7 +73,11 @@ class FilterExpenseAdapter(var listener: Listener, aExpenses: MutableList<Expens
             aHolder.mType.text = it.descricao
         }
 
-        aHolder.mDescricao.text = aExpense.descricao
+        if(aExpense.descricao.isNullOrEmpty()) {
+            aHolder.mDescricao.visibility = View.GONE
+        } else {
+            aHolder.mDescricao.text = aExpense.descricao
+        }
         aHolder.mHoraWhy.text = DateUtil.dataFormat("HH:mm", aExpense.dataRegiter!!)
         aHolder.mDataHoraFim.text = DateUtil.dataFormat("dd/MM/yyyy", aExpense.dataRegiter!!)
         aHolder.mValor.text = aExpense.amount!!.formatDoubleMoneyToString()

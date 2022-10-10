@@ -1,7 +1,7 @@
 package com.buffalo.controlefinancas.util
 
 import com.buffalo.controlefinancas.model.ExpenseType
-import com.example.controlefinancas.database.ExpenseTypeDAO
+import com.buffalo.controlefinancas.database.ExpenseTypeDAO
 
 object ExpenseUtil {
     fun createExpenseDefault() {

@@ -22,8 +22,7 @@ import com.buffalo.controlefinancas.model.ColorExpense
 import com.buffalo.controlefinancas.model.ExpenseType
 import com.buffalo.controlefinancas.ui.adapter.ColorExpenseTypeAdapter
 import com.buffalo.controlefinancas.util.MapElement
-import com.example.controlefinancas.database.ExpenseTypeDAO
-import com.github.clans.fab.FloatingActionButton
+import com.buffalo.controlefinancas.database.ExpenseTypeDAO
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import es.dmoral.toasty.Toasty
 import java.util.*

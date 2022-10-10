@@ -12,38 +12,12 @@ object ColorUtil {
     const val MEDIA_COLOR = 230
 
     fun dominatColor(hexdecimal: String): Int {
-        var color  = Color.parseColor(hexdecimal)
+        val color  = Color.parseColor(hexdecimal)
         val red = color.red
         val green = color.green
         val blue = color.blue
         return (red + green + blue) / 3
     }
-
-//    fun getDominantColor(image: Bitmap?): Int{
-//        val bitmap: Bitmap? = image
-//
-//        var redColors = 0
-//        var greenColors = 0
-//        var blueColors = 0
-//        var pixelCount = 0
-//
-//        for (y in 0 until bitmap!!.height) {
-//            for (x in 0 until bitmap.width) {
-//                val c = bitmap.getPixel(x, y)
-//                pixelCount++
-//                redColors += Color.red(c)
-//                greenColors += Color.green(c)
-//                blueColors += Color.blue(c)
-//            }
-//        }
-//
-//        val red = redColors / pixelCount
-//        val green = greenColors / pixelCount
-//        val blue = blueColors / pixelCount
-//
-//        return (red + green + blue) / 3
-//    }
-
 
     fun createList() {
         ColorExpenseDAO.save(ColorExpense(1, "#6A5ACD", false))

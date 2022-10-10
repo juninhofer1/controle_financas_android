@@ -1,0 +1,18 @@
+<resources>
+    <dimen name="fab_margin">48dp</dimen>
+
+    <!-- CALENDAR DAY -->
+<!--    <dimen name="day_circle_width">24dp</dimen>-->
+<!--    <dimen name="day_circle_height">24dp</dimen>-->
+<!--    <dimen name="day_circle_radius">120dp</dimen>-->
+<!--    <dimen name="day_circle_stroke_width">1dp</dimen>-->
+<!--    <dimen name="margin_top_menu_button">-10dp</dimen>-->
+<!--    <dimen name="margim_top_menu_button">5dp</dimen>-->
+
+<!--    <dimen name="calendar_home_margim_horizontal">60dp</dimen>-->
+<!--    <dimen name="calendar_bottom_arrow_size">39dp</dimen>-->
+<!--    <dimen name="calendar_arrow_size">44dp</dimen>-->
+<!--    <dimen name="calendar_text_moth">25sp</dimen>-->
+<!--    <dimen name="calendar_text_days">22sp</dimen>-->
+
+</resources>

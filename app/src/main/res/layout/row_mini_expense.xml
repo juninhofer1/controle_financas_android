@@ -55,7 +55,7 @@
                 android:layout_above="@+id/guideCenter"
                 android:layout_centerHorizontal="true"
                 android:background="@color/colorAccent"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <Space
                 android:id="@+id/guideCenter"
@@ -71,7 +71,7 @@
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
                 android:background="@color/colorAccent"
-                android:visibility="gone" />
+                android:visibility="visible" />
 
             <RelativeLayout
                 android:layout_width="wrap_content"

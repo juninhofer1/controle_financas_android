@@ -1,4 +1,4 @@
-package com.example.controlefinancas.database
+package com.buffalo.controlefinancas.database
 
 import com.buffalo.controlefinancas.model.ExpenseType
 import com.buffalo.controlefinancas.util.BaseDao

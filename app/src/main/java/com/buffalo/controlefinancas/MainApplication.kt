@@ -2,8 +2,6 @@ package com.buffalo.controlefinancas
 
 import android.app.Application
 import com.buffalo.controlefinancas.database.ColorExpenseDAO
-import com.example.controlefinancas.database.ExpenseTypeDAO
-import com.buffalo.controlefinancas.model.ExpenseType
 import com.buffalo.controlefinancas.util.ColorUtil
 import com.buffalo.controlefinancas.util.ExpenseUtil
 import io.realm.Realm

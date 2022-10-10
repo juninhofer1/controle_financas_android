@@ -1,5 +1,6 @@
 package com.buffalo.controlefinancas.util
 
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Context
@@ -17,11 +18,13 @@ object DateUtil {
         return data("dd/MM/yyyy HH:mm:ss", aData)
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun data(aFormato: String, aDate: String?): String {
         val parse = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss").parse(aDate)
         return data(aFormato, parse)
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun dataPayment(aFormato: String, aDate: String?): String {
         if(aDate!!.contains("/")) {
             return dataPaymentII(aFormato, aDate)
@@ -30,6 +33,7 @@ object DateUtil {
         return data(aFormato, parse)
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun dataPaymentToDate(aFormato: String, aDate: String?): Date {
         if(aDate!!.contains("/")) {
             return SimpleDateFormat("dd/MM/yyyy").parse(aDate)
@@ -60,6 +64,7 @@ object DateUtil {
         return SimpleDateFormat(formarto).parse(aData)
     }
 
+    @SuppressLint("SimpleDateFormat")
     fun data(aFormato: String, aData: Date?): String {
         return if (aData != null) SimpleDateFormat(aFormato).format(aData) else ""
     }

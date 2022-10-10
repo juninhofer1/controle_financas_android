@@ -159,11 +159,11 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
             return false
         }
 
-        binding.editTextDescription.error = null
-        if (binding.editTextDescription.text!!.isEmpty()) {
-            binding.editTextDescription.error = "Informe uma descrição"
-            return false
-        }
+//        binding.editTextDescription.error = null
+//        if (binding.editTextDescription.text!!.isEmpty()) {
+//            binding.editTextDescription.error = "Informe uma descrição"
+//            return false
+//        }
 
         binding.editTextValue.error = null
         val valueMonetary = binding.editTextValue.text.toString().valueToDouble()

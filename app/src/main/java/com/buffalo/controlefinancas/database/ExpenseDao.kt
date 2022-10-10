@@ -1,9 +1,6 @@
 package com.buffalo.controlefinancas.database
 
-import android.util.Log
 import com.buffalo.controlefinancas.model.Expense
-import com.buffalo.controlefinancas.model.ExpenseType
-import com.buffalo.controlefinancas.model.FilterExpenseType
 import com.buffalo.controlefinancas.util.BaseDao
 import io.realm.Realm
 import io.realm.Sort

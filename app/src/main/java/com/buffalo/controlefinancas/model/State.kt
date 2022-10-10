@@ -1,6 +1,5 @@
 package com.buffalo.controlefinancas.model
 
-
 import com.google.gson.annotations.SerializedName
 
 class State {

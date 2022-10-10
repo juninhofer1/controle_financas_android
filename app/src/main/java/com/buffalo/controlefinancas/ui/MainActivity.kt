@@ -192,6 +192,9 @@ class MainActivity : AppCompatActivity(), ActionMaps, ExpenseAdapter.Listener, B
             ExpenseDao.deleteById(id)
             mAdapter?.let {
                 it.remove(expense)
+                if(it.mData.size > 3) {
+                    binding.floatingActionButtonAdd.visibility = View.VISIBLE
+                }
                 if (it.showMsm()) {
                     binding.containerMsm.visibility = View.VISIBLE
                 }

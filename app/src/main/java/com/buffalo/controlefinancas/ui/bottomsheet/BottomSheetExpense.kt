@@ -21,7 +21,7 @@ import com.buffalo.controlefinancas.R
 import com.buffalo.controlefinancas.model.ExpenseType
 import com.buffalo.controlefinancas.ui.adapter.ExpenseTypeAdapter
 import com.buffalo.controlefinancas.util.MapElement
-import com.example.controlefinancas.database.ExpenseTypeDAO.loadAll
+import com.buffalo.controlefinancas.database.ExpenseTypeDAO.loadAll
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import java.text.Normalizer
