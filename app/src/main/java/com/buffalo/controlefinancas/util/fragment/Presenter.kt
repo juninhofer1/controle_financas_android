@@ -1,10 +1,7 @@
-package com.buffalo.controlefinancas.util.fragment;
+package com.buffalo.controlefinancas.util.fragment
 
-public interface Presenter {
-
-    void resume();
-
-    void pause();
-
-    void destroy();
+interface Presenter {
+    fun resume()
+    fun pause()
+    fun destroy()
 }

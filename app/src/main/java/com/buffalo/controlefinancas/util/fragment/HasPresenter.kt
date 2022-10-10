@@ -1,6 +1,7 @@
-package com.buffalo.controlefinancas.util.fragment;
+package com.buffalo.controlefinancas.util.fragment
 
-public interface HasPresenter<T extends Presenter> {
+import com.buffalo.controlefinancas.util.fragment.Presenter
 
-    T getPresenter();
+interface HasPresenter<T : Presenter?> {
+    val presenter: T
 }
