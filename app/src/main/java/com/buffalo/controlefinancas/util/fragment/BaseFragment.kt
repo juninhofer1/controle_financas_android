@@ -12,21 +12,21 @@ abstract class BaseFragment : Fragment(), BaseView, ActionMaps {
     override fun onResume() {
         super.onResume()
         if (this is HasPresenter<*> && (this as HasPresenter<*>).presenter != null) {
-            (this as HasPresenter<*>).presenter.resume()
+            (this as HasPresenter<*>).presenter?.resume()
         }
     }
 
     override fun onPause() {
         super.onPause()
         if (this is HasPresenter<*> && (this as HasPresenter<*>).presenter != null) {
-            (this as HasPresenter<*>).presenter.pause()
+            (this as HasPresenter<*>).presenter?.pause()
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
         if (this is HasPresenter<*> && (this as HasPresenter<*>).presenter != null) {
-            (this as HasPresenter<*>).presenter.destroy()
+            (this as HasPresenter<*>).presenter?.destroy()
         }
     }
 

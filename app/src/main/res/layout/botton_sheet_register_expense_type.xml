@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/root_view"
     android:layout_width="match_parent"
@@ -96,8 +95,8 @@
                     android:id="@+id/image_add"
                     android:layout_width="38dp"
                     android:layout_height="38dp"
-                    android:padding="8dp"
                     android:layout_centerInParent="true"
+                    android:padding="8dp"
                     android:src="@drawable/ic_baseline_save"
                     app:tint="@color/white" />
 

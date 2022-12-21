@@ -13,8 +13,6 @@ import android.text.SpannableString
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import androidx.activity.result.ActivityResult
-import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AlertDialog
@@ -45,7 +43,7 @@ import java.util.*
 
 class ChartExpenseActivity: AppCompatActivity(), MapElement {
 
-    val STORAGE_PERMISSION_CODE: Int = 100
+    private val STORAGE_PERMISSION_CODE: Int = 100
 
     private var chart: PieChart? = null
     private var expense : MutableList<Expense> = mutableListOf()
@@ -63,6 +61,12 @@ class ChartExpenseActivity: AppCompatActivity(), MapElement {
     private var listTextColors = ArrayList<Int>()
     private var listColorChart = ArrayList<Int>()
 
+
+    fun shortByTypeAndData() : List<FilterExpenseType> {
+        var filterExpense = filterExpenses.sortedBy { it.expenseType?.descricao == "Combustível" }
+        return filterExpense
+    }
+
     private fun createSheet() {
         val workbook: Workbook = HSSFWorkbook()
         val sheet: Sheet?
@@ -70,7 +74,8 @@ class ChartExpenseActivity: AppCompatActivity(), MapElement {
         sheet = workbook.createSheet(EXCEL_SHEET_NAME)
 
         var count = 1
-        for (item in filterExpenses) {
+        val filterList = shortByTypeAndData()
+        for (item in filterList) {
             count = if(item.expenseType!!.descricao!!.contains("Combustível")) {
                 XLSUtil.createCellsFuel(count, workbook, sheet, item.expenses, item.totalValue())
             } else {
@@ -195,44 +200,40 @@ class ChartExpenseActivity: AppCompatActivity(), MapElement {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             try {
                 val intent = Intent()
-                intent.action = Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION
+                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                 val uri = Uri.fromParts("package", this.packageName, null)
                 intent.data = uri
                 storageActivityResultLauncher.launch(intent)
             } catch (ex : Exception) {
                 Log.e("", "", ex)
                 val intent = Intent()
-                intent.action = Settings.ACTION_MANAGE_APP_ALL_FILES_ACCESS_PERMISSION
+                intent.action = Settings.ACTION_APPLICATION_DETAILS_SETTINGS
                 storageActivityResultLauncher.launch(intent)
             }
         } else {
             ActivityCompat.requestPermissions(
                 this, arrayOf(
                     Manifest.permission.WRITE_EXTERNAL_STORAGE,
-                    Manifest.permission.READ_EXTERNAL_STORAGE,
-                    Manifest.permission.MANAGE_EXTERNAL_STORAGE
+                    Manifest.permission.CAMERA,
                 ), STORAGE_PERMISSION_CODE)
 
         }
     }
 
+
     var storageActivityResultLauncher : ActivityResultLauncher<Intent> = registerForActivityResult(
-        ActivityResultContracts.StartActivityForResult(),
-        ActivityResultCallback<ActivityResult>() {
+        ActivityResultContracts.StartActivityForResult()) {
             Log.e("", "ActivityResult: ")
-            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
-                if(Environment.isExternalStorageManager()) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+                if (Environment.isExternalStorageManager()) {
                     Log.d("", "ActivityResult: Aceitou")
                     createSheet()
                 } else {
                     Log.d("", "ActivityResult: Negou")
                     dialog()
                 }
-            } else {
-
             }
-        }
-    )
+    }
 
     override fun onRequestPermissionsResult(
         requestCode: Int,
@@ -260,8 +261,8 @@ class ChartExpenseActivity: AppCompatActivity(), MapElement {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             return Environment.isExternalStorageManager()
         } else {
-            var write = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-            var read = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+            val write = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            val read = ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
             return write == PackageManager.PERMISSION_GRANTED && read == PackageManager.PERMISSION_GRANTED
         }
     }

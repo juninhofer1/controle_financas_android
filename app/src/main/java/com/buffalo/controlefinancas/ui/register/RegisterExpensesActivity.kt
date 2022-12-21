@@ -159,12 +159,6 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
             return false
         }
 
-//        binding.editTextDescription.error = null
-//        if (binding.editTextDescription.text!!.isEmpty()) {
-//            binding.editTextDescription.error = "Informe uma descrição"
-//            return false
-//        }
-
         binding.editTextValue.error = null
         val valueMonetary = binding.editTextValue.text.toString().valueToDouble()
         if (valueMonetary == 0.0) {
@@ -232,7 +226,7 @@ class RegisterExpensesActivity : AppCompatActivity(), MapElement, BottomSheetExp
             .show()
     }
 
-    fun setExpenseType(newValue : ExpenseType) {
+    private fun setExpenseType(newValue : ExpenseType) {
         binding.editTextExpenseType.error = null
         binding.editTextExpenseType.setText(newValue.descricao)
         if(mExpenseType!!.descricao.equals("Combustível")) {
